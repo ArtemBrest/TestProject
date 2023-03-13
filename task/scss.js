@@ -19,7 +19,9 @@ const scss = () => {
                 message: error.message
             }))
         }))
-        .pipe(sass())
+        .pipe(sass({
+            includePaths: ['node_modules']
+        }))
         .pipe(autoprefixer())
         .pipe(shorthand())
         .pipe(gulpCssMediaQueries())

@@ -2,7 +2,8 @@ const { src, dest } = require('gulp')
 
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
-const imageMin = require('gulp-imagemin')
+const imagemin = require('gulp-imagemin');
+const imgCompress  = require('imagemin-jpeg-recompress');
 const newer = require('gulp-newer')
 
 
@@ -18,9 +19,20 @@ const img = () => {
             }))
         }))
         .pipe(newer(path.img.dest))
-        /*.pipe(imageMin({
+        /*.pipe(imagemin({
              verbose: true
         }))*/
+        .pipe(imagemin([
+            imgCompress({
+                loops: 4,
+                min: 70,
+                max: 80,
+                quality: 'high'
+            }),
+            imagemin.gifsicle(),
+            imagemin.optipng(),
+            //imagemin.svgo()
+        ]))
         .pipe(dest(path.img.dest))
 }
 

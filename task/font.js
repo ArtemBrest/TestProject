@@ -19,7 +19,7 @@ const font = () => {
         }))
         .pipe(newer(path.font.dest))
         .pipe(fonter({
-            formats: ['woff']
+            formats: ['woff', 'ttf']
         }))
         .pipe(dest(path.font.dest))
         .pipe(ttf2woff2())

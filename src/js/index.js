@@ -70,4 +70,49 @@ window.addEventListener("load", function () {
             fadeOut(fade);
         })
     }
+
+    let checkoutSelect = document.querySelector('.select');
+    if(checkoutSelect !== null){
+        let selectSingleHead = checkoutSelect.querySelector('.select__head');
+        let selectSingleLabels = checkoutSelect.querySelectorAll('.select-item__label');
+        if(selectSingleHead !== null && selectSingleLabels !== null){
+            selectSingleHead.addEventListener('click', () => {
+                if ('active' === checkoutSelect.getAttribute('data-state')) {
+                    checkoutSelect.setAttribute('data-state', '');
+                } else {
+                    checkoutSelect.setAttribute('data-state', 'active');
+                }
+            });
+            for (let i = 0; i < selectSingleLabels.length; i++) {
+                selectSingleLabels[i].addEventListener('click', (evt) => {
+                    selectSingleHead.querySelector(".select__title").innerHTML = selectSingleLabels[i].textContent;
+                    checkoutSelect.setAttribute('data-state', '');
+                });
+            }
+        }
+    }
+
+    let inputRange = document.getElementById("input-range");
+    if(inputRange !== null){
+        inputRange.addEventListener("change", function (e) {
+            e.preventDefault();
+            let value = inputRange.value;
+            inputRange.closest(".checkout-form-item").querySelector(".checkout-form-item__label span").innerHTML = value + " %";
+        })
+    }
+
+    let input = document.getElementById('input-file');
+    if(input !== null){
+        let label = input.nextElementSibling,
+            labelVal = label.querySelector('.checkout-form-item-label__text').innerText;
+        input.addEventListener('change', function (e) {
+            let countFiles = '';
+            if (this.files && this.files.length >= 1)
+                countFiles = this.files.length;
+            if (countFiles)
+                label.querySelector('.checkout-form-item-label__text').innerText = 'Выбрано файлов: ' + countFiles;
+            else
+                label.querySelector('.checkout-form-item-label__text').innerText = labelVal;
+        });
+    }
 })

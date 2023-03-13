@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoremIpsum.Net</title>
+    <link rel="stylesheet" href="./css/normalize.min.css">
     <link rel="stylesheet" href="./css/index.min.css">
 </head>
 <body>
@@ -12,7 +13,7 @@
     <div class="container">
         <div class="header__row">
             <a href="/" class="header__logo header-logo">
-                <img src="./img/svg/logo.svg" alt="LoremIpsum.Net" title="LoremIpsum.Net" class="header-logo__img">
+                <img src="./img/svg/logo.svg" alt="LoremIpsum.Net" title="LoremIpsum.Net" class="header-logo__img" width="240" height="35">
             </a>
             <ul class="header__menu header-menu">
                 <li class="header-menu__item header-menu__item--active"><a href="#" class="header-menu__link">Бизнес</a></li>
@@ -107,52 +108,54 @@
                     <p class="checkout-step__title">Excepteur sint occaecat cupidatat non proident</p>
                 </div>
             </div>
-            <form class="checkout__form checkout-form" action="" method="POST" autocomplete="off">
+            <form class="checkout__form checkout-form" action="/" method="GET" autocomplete="off">
                 <div class="checkout-form__wrapper">
                     <div class="checkout-form__item checkout-form-item">
                         <div class="checkout-form-item__select select" data-state="">
                             <div class="select__head">
                                 <span class="select__title">Выберите тип системы</span>
-                                <svg width="20" height="20" class="select__icon"></svg>
+                                <svg width="20" height="20" class="select__icon">
+                                    <use xlink:href="./img/sprites.svg#icon-select"></use>
+                                </svg>
                             </div>
                             <div class="select__content">
                                 <div class="select__item select-item">
                                     <input id="system-type-1" class="select-item__input" type="radio" name="system-type" value="Sed ut perspiciatis">
                                     <label for="system-type-1" tabindex="0" class="select-item__label">Sed ut perspiciatis</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-2" class="select-item__input" type="radio" name="system-type" value="Nemo enim ipsam">
                                     <label for="system-type-2" tabindex="0" class="select-item__label">Nemo enim ipsam</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-3" class="select-item__input" type="radio" name="system-type" value="Et harum quidem">
                                     <label for="system-type-3" tabindex="0" class="select-item__label">Et harum quidem</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-4" class="select-item__input" type="radio" name="system-type" value="Temporibus autem">
                                     <label for="system-type-4" tabindex="0" class="select-item__label">Temporibus autem</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-5" class="select-item__input" type="radio" name="system-type" value="Itaque earum rerum">
                                     <label for="system-type-5" tabindex="0" class="select-item__label">Itaque earum rerum</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-6" class="select-item__input" type="radio" name="system-type" value="Sed ut perspiciatis">
                                     <label for="system-type-6" tabindex="0" class="select-item__label">Sed ut perspiciatis</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-7" class="select-item__input" type="radio" name="system-type" value="Nemo enim ipsam">
                                     <label for="system-type-7" tabindex="0" class="select-item__label">Nemo enim ipsam</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-8" class="select-item__input" type="radio" name="system-type" value="Et harum quidem">
                                     <label for="system-type-8" tabindex="0" class="select-item__label">Et harum quidem</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-9" class="select-item__input" type="radio" name="system-type" value="Temporibus autem">
                                     <label for="system-type-9" tabindex="0" class="select-item__label">Temporibus autem</label>
                                 </div>
-                                <div class="catalog-sorting__row">
+                                <div class="select__item select-item">
                                     <input id="system-type-10" class="select-item__input" type="radio" name="system-type" value="Itaque earum rerum">
                                     <label for="system-type-10" tabindex="0" class="select-item__label">Itaque earum rerum</label>
                                 </div>
@@ -169,19 +172,21 @@
                             <input class="checkout-form-item__input" type="text" name="name" placeholder="Ваше имя">
                         </label>
                     </div>
-                    <div class="checkout-form__item checkout-form-item">
+                    <div class="checkout-form__item checkout-form-item checkout-form-item-range">
                         <label for="input-range" class="checkout-form-item__label">Sed ut perspiciatis, unde omnis iste natus <span>75 %</span></label>
-                        <input class="checkout-form-item__input checkout-form-item__input--range" type="range" name="name" id="input-range" min="0" max="100" step="1">
+                        <input class="checkout-form-item__input" type="range" name="range" id="input-range" min="0" max="100" step="1" value="75">
                     </div>
-                    <div class="checkout-form__item checkout-form-item">
+                    <div class="checkout-form__item checkout-form-item checkout-form-item--file">
+                        <input class="checkout-form-item__input" type="file" name="file" id="input-file" multiple>
                         <label for="input-file" class="checkout-form-item__label checkout-form-item-label">
-                            <svg class="checkout-form-item-label__icon" width="17" height="20"></svg>
+                            <svg class="checkout-form-item-label__icon" width="17" height="20">
+                                <use xlink:href="./img/sprites.svg#icon-document"></use>
+                            </svg>
                             <span class="checkout-form-item-label__text">Прикрепить файл</span>
                         </label>
-                        <input class="checkout-form-item__input checkout-form-item__input--file" type="file" name="myfile" id="input-file">
                     </div>
                 </div>
-                <button class="checkout-form__btn">Отправить</button>
+                <button class="checkout-form__btn btn-main" type="submit"><span>Отправить</span></button>
             </form>
         </div>
     </section>
@@ -224,6 +229,6 @@
     </div>
 </footer>
 <div id="fade"></div>
-<script src="./js/index.js"></script>
+<script src="./js/index.min.js"></script>
 </body>
 </html>
