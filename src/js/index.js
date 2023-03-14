@@ -104,15 +104,15 @@ window.addEventListener("load", function () {
     let input = document.getElementById('input-file');
     if(input !== null){
         let label = input.nextElementSibling,
-            labelVal = label.querySelector('.checkout-form-item-label__text').innerText;
+            labelVal = label.querySelector('.checkout-form-item-label-file__text').innerText;
         input.addEventListener('change', function (e) {
             let countFiles = '';
             if (this.files && this.files.length >= 1)
                 countFiles = this.files.length;
             if (countFiles)
-                label.querySelector('.checkout-form-item-label__text').innerText = 'Выбрано файлов: ' + countFiles;
+                label.querySelector('.checkout-form-item-label-file__text').innerText = 'Выбрано файлов: ' + countFiles;
             else
-                label.querySelector('.checkout-form-item-label__text').innerText = labelVal;
+                label.querySelector('.checkout-form-item-label-file__text').innerText = labelVal;
         });
     }
 })
