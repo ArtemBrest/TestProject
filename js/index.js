@@ -42,32 +42,6 @@ function isEmptyObject(obj) {
 }
 
 window.addEventListener("load", function () {
-  var header = document.getElementById("header");
-  var body = document.body;
-  var scrollUp = "scroll-up";
-  var scrollDown = "scroll-down";
-  var lastScroll = 0;
-  var currentDirection;
-  window.addEventListener("scroll", function () {
-    var currentScroll = window.pageYOffset;
-
-    if (currentScroll <= 0) {
-      body.classList.remove(scrollUp, scrollDown); //header.classList.remove("active");
-
-      return;
-    }
-
-    var direction = currentScroll > lastScroll ? scrollDown : scrollUp;
-
-    if (direction !== currentDirection) {
-      body.classList.remove(scrollUp, scrollDown);
-      body.classList.add(direction); //header.classList.add("active");
-
-      currentDirection = direction;
-    }
-
-    lastScroll = currentScroll;
-  });
   var headerBtnMenu = document.getElementById("header-btn-menu");
   var mobileMenu = document.getElementById("mobile-menu");
   var mobileMenuBtnClose = document.querySelector(".mobile-menu-btn");
@@ -139,4 +113,47 @@ window.addEventListener("load", function () {
       if (countFiles) label.querySelector('.checkout-form-item-label-file__text').innerText = 'Выбрано файлов: ' + countFiles;else label.querySelector('.checkout-form-item-label-file__text').innerText = labelVal;
     });
   }
+
+  var anchorLinks = function anchorLinks(id) {
+    if (id != "#") {
+      var point = document.querySelector(id);
+
+      if (point) {
+        point.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      if (link.classList.contains("mobile-menu-list__link")) {
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+          if (link.classList.contains("mobile-menu-list__link")) {
+            link.closest('.mobile-menu-list__item').classList.remove("mobile-menu-list__item--active");
+          }
+        });
+        link.closest('.mobile-menu-list__item').classList.add("mobile-menu-list__item--active");
+
+        if (mobileMenu !== null && fade !== null) {
+          mobileMenu.classList.remove("mobile-menu--open");
+          fadeOut(fade);
+        }
+      } else if (link.classList.contains("header-menu__link")) {
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+          if (link.classList.contains("header-menu__link")) {
+            link.closest('.header-menu__item').classList.remove("header-menu__item--active");
+          }
+        });
+        link.closest('.header-menu__item').classList.add("header-menu__item--active");
+      }
+
+      var id = e.currentTarget.getAttribute('href');
+      anchorLinks(id);
+    });
+  });
 });

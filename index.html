@@ -16,12 +16,12 @@
                 <img src="./img/svg/logo.svg" alt="LoremIpsum.Net" title="LoremIpsum.Net" class="header-logo__img" width="240" height="35">
             </a>
             <ul class="header__menu header-menu">
-                <li class="header-menu__item header-menu__item--active"><a href="#" class="header-menu__link">Бизнес</a></li>
+                <li class="header-menu__item header-menu__item--active"><a href="#section-banner" class="header-menu__link">Бизнес</a></li>
                 <li class="header-menu__item"><a href="#" class="header-menu__link">О нас</a></li>
                 <li class="header-menu__item"><a href="#" class="header-menu__link">Цены</a></li>
-                <li class="header-menu__item"><a href="#" class="header-menu__link">Оформить заказ</a></li>
+                <li class="header-menu__item"><a href="#section-checkout" class="header-menu__link">Оформить заказ</a></li>
             </ul>
-            <button class="header__btn header-btn" id="header-btn-menu">
+            <button class="header__btn header-btn" id="header-btn-menu" aria-label="mobi-menu-open">
                 <span class="header-btn__line"></span>
                 <span class="header-btn__line"></span>
                 <span class="header-btn__line"></span>
@@ -30,17 +30,17 @@
     </div>
 </header>
 <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu__btn mobile-menu-btn">
+    <button class="mobile-menu__btn mobile-menu-btn" aria-label="mobi-menu-close">
         <svg width="16" height="16" class="mobile-menu-btn__icon">
             <use xlink:href="./img/sprites.svg#icon-arrow"></use>
         </svg>
     </button>
     <div class="mobile-menu__wrapper">
         <ul class="mobile-menu__list mobile-menu-list">
-            <li class="mobile-menu-list__item mobile-menu-list__item--active"><a href="#" class="mobile-menu-list__link">Бизнес</a></li>
+            <li class="mobile-menu-list__item mobile-menu-list__item--active"><a href="#section-banner" class="mobile-menu-list__link">Бизнес</a></li>
             <li class="mobile-menu-list__item"><a href="#" class="mobile-menu-list__link">О нас</a></li>
             <li class="mobile-menu-list__item"><a href="#" class="mobile-menu-list__link">Цены</a></li>
-            <li class="mobile-menu-list__item"><a href="#" class="mobile-menu-list__link">Оформить заказ</a></li>
+            <li class="mobile-menu-list__item"><a href="#section-checkout" class="mobile-menu-list__link">Оформить заказ</a></li>
         </ul>
     </div>
 </div>
@@ -55,8 +55,8 @@
                 <li class="banner-list__item">Sed ut perspiciatis, unde omnis iste natus error</li>
             </ul>
             <div class="banner__buttons">
-                <button class="btn-main banner__btn banner__btn--order">заказать</button>
-                <button class="btn-main banner__btn banner__btn--more">подробнее</button>
+                <button class="btn-main banner__btn banner__btn--order" aria-label="button-order">заказать</button>
+                <button class="btn-main banner__btn banner__btn--more" aria-label="button-more">подробнее</button>
             </div>
         </div>
     </section>
@@ -186,7 +186,7 @@
                         </label>
                     </div>
                 </div>
-                <button class="checkout-form__btn btn-main" type="submit"><span>Отправить</span></button>
+                <button class="checkout-form__btn btn-main" type="submit" aria-label="button-submit">Отправить</button>
             </form>
         </div>
     </section>
@@ -198,15 +198,15 @@
             <div class="footer__separator"></div>
             <div class="footer__payments footer-payments">
                 <div class="footer-payments__item footer-payments-item">
-                    <img src="./img/png/payment-logo-1.png" alt="Qiwi wallet" title="Qiwi wallet" class="footer-payments-item__logo" srcset="./img/png/payment-logo-1@2x.png 2x">
+                    <img src="./img/png/payment-logo-1.png" alt="Qiwi wallet" title="Qiwi wallet" class="footer-payments-item__logo" width="21" height="20" srcset="./img/png/payment-logo-1@2x.png 2x">
                     <p class="footer-payments-item__name">Qiwi wallet</p>
                 </div>
                 <div class="footer-payments__item footer-payments-item">
-                    <img src="./img/png/payment-logo-2.png" alt="Yandex Money" title="Yandex Money" class="footer-payments-item__logo" srcset="./img/png/payment-logo-2@2x.png 2x">
+                    <img src="./img/png/payment-logo-2.png" alt="Yandex Money" title="Yandex Money" class="footer-payments-item__logo" width="21" height="20" srcset="./img/png/payment-logo-2@2x.png 2x">
                     <p class="footer-payments-item__name">Yandex Money</p>
                 </div>
                 <div class="footer-payments__item footer-payments-item">
-                    <img src="./img/png/payment-logo-3.png" alt="Web Money" title="Web Money" class="footer-payments-item__logo" srcset="./img/png/payment-logo-3@2x.png 2x">
+                    <img src="./img/png/payment-logo-3.png" alt="Web Money" title="Web Money" class="footer-payments-item__logo" width="21" height="20" srcset="./img/png/payment-logo-3@2x.png 2x">
                     <p class="footer-payments-item__name">Web Money</p>
                 </div>
             </div>

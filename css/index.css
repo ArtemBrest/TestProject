@@ -169,10 +169,6 @@ svg {
   overflow: hidden;
 }
 
-.btn-main:hover {
-  background: #3E9CDC;
-}
-
 .header {
   position: sticky;
   top: 0;
@@ -233,10 +229,6 @@ svg {
 }
 
 .header-menu__item.header-menu__item--active .header-menu__link {
-  color: #43ABF0;
-}
-
-.header-menu__item:hover .header-menu__link {
   color: #43ABF0;
 }
 
@@ -373,10 +365,12 @@ svg {
   font-size: 20px;
   line-height: 24px;
   margin-bottom: 10px;
+  max-width: 780px;
 }
 
 .banner-list {
   margin-bottom: 80px;
+  max-width: 780px;
 }
 
 .banner-list__item {
@@ -571,7 +565,7 @@ svg {
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #FFFFFF;
+  border: 2px solid #FFFFFF;
   border-radius: 3px;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -617,10 +611,6 @@ svg {
 .checkout-form .select__content::-webkit-scrollbar-thumb {
   background: #3E9CDC;
   border-radius: 4px;
-}
-
-.checkout-form .select-item:hover .select-item__label {
-  color: #42A9ED;
 }
 
 .checkout-form .select-item__input {
@@ -675,6 +665,7 @@ svg {
 
 .checkout-form-item.checkout-form-item-range .checkout-form-item__input {
   height: 36px;
+  padding: 0;
   border: none;
   background: transparent;
   -webkit-appearance: none;
@@ -909,8 +900,22 @@ svg {
   color: #C3C3C3;
 }
 
-.footer-social-item__text:hover {
-  color: #FFFFFF;
+@media (min-width: 1201px) {
+  .btn-main:hover {
+    background: #3E9CDC;
+  }
+
+  .header-menu__item:hover .header-menu__link {
+    color: #43ABF0;
+  }
+
+  .checkout-form .select-item:hover .select-item__label {
+    color: #42A9ED;
+  }
+
+  .footer-social-item__text:hover {
+    color: #FFFFFF;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -982,6 +987,11 @@ svg {
   .checkout-head__title {
     font-size: 32px;
     line-height: 39px;
+  }
+
+  .checkout-head__text {
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .checkout-steps {
@@ -1261,8 +1271,8 @@ svg {
   }
 
   .checkout-head__text {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .checkout-steps {
