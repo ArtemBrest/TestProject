@@ -117,8 +117,10 @@ svg {
   border-radius: 4px;
   position: relative;
   overflow: hidden;
-  &:hover{
-    background: $blueIcon;
+  @media (min-width: 1201px) {
+    &:hover {
+      background: $blueIcon;
+    }
   }
 }
 .header{
@@ -172,10 +174,12 @@ svg {
           }
         }
       }
-      &:hover{
-        .header-menu{
-          &__link{
-            color: $blue;
+      @media (min-width: 1201px) {
+        &:hover {
+          .header-menu {
+            &__link {
+              color: $blue;
+            }
           }
         }
       }
@@ -286,9 +290,11 @@ svg {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 10px;
+    max-width: 780px;
   }
   &-list{
     margin-bottom: 80px;
+    max-width: 780px;
     &__item{
       display: flex;
       align-items: center;
@@ -434,7 +440,7 @@ svg {
         width: 100%;
         height: 100%;
         background: rgba(255, 255, 255, 0.85);
-        border: 1px solid $white;
+        border: 2px solid $white;
         border-radius: 3px;
         transition: all 0.3s;
         cursor: pointer;
@@ -472,8 +478,10 @@ svg {
         }
       }
       &-item{
-        &:hover .select-item__label{
-          color: $blueActive;
+        @media (min-width: 1201px) {
+          &:hover .select-item__label{
+            color: $blueActive;
+          }
         }
         &__input {
           position: absolute;
@@ -515,6 +523,7 @@ svg {
           }
           &__input {
             height: 36px;
+            padding: 0;
             border: none;
             background: transparent;
             appearance: none;
@@ -674,8 +683,10 @@ svg {
         font-size: 13px;
         line-height: 16px;
         color: $gray;
-        &:hover{
-          color: $white;
+        @media (min-width: 1201px) {
+          &:hover {
+            color: $white;
+          }
         }
       }
     }
@@ -742,6 +753,10 @@ svg {
       &__title{
         font-size: 32px;
         line-height: 39px;
+      }
+      &__text{
+        font-size: 16px;
+        line-height: 20px;
       }
     }
     &-steps{
@@ -961,8 +976,8 @@ svg {
         margin-bottom: 20px;
       }
       &__text{
-        font-size: 16px;
-        line-height: 20px;
+        font-size: 14px;
+        line-height: 18px;
       }
     }
     &-steps{

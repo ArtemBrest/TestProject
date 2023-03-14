@@ -29,29 +29,6 @@ function isEmptyObject(obj) {
     return true;
 }
 window.addEventListener("load", function () {
-    let header = document.getElementById("header");
-    const body = document.body;
-    const scrollUp = "scroll-up";
-    const scrollDown = "scroll-down";
-    let lastScroll = 0;
-    let currentDirection;
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll <= 0) {
-            body.classList.remove(scrollUp, scrollDown);
-            //header.classList.remove("active");
-            return;
-        }
-        const direction = currentScroll > lastScroll ? scrollDown : scrollUp;
-        if (direction !== currentDirection) {
-            body.classList.remove(scrollUp, scrollDown);
-            body.classList.add(direction);
-            //header.classList.add("active");
-            currentDirection = direction;
-        }
-        lastScroll = currentScroll;
-    });
-
     let headerBtnMenu = document.getElementById("header-btn-menu");
     let mobileMenu = document.getElementById("mobile-menu");
     let mobileMenuBtnClose = document.querySelector(".mobile-menu-btn");
@@ -115,4 +92,42 @@ window.addEventListener("load", function () {
                 label.querySelector('.checkout-form-item-label-file__text').innerText = labelVal;
         });
     }
+    const anchorLinks = (id) => {
+        if(id != "#"){
+            let point = document.querySelector(id)
+            if (point) {
+                point.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(function (link){
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            if(link.classList.contains("mobile-menu-list__link")){
+                document.querySelectorAll('a[href^="#"]').forEach(function (link){
+                    if(link.classList.contains("mobile-menu-list__link")){
+                        link.closest('.mobile-menu-list__item').classList.remove("mobile-menu-list__item--active")
+                    }
+                })
+                link.closest('.mobile-menu-list__item').classList.add("mobile-menu-list__item--active")
+                if(mobileMenu !== null && fade !== null) {
+                    mobileMenu.classList.remove("mobile-menu--open");
+                    fadeOut(fade);
+                }
+            }
+            else if(link.classList.contains("header-menu__link")){
+                document.querySelectorAll('a[href^="#"]').forEach(function (link){
+                    if(link.classList.contains("header-menu__link")){
+                        link.closest('.header-menu__item').classList.remove("header-menu__item--active");
+                    }
+                })
+                link.closest('.header-menu__item').classList.add("header-menu__item--active");
+            }
+            let id = e.currentTarget.getAttribute('href');
+            anchorLinks(id);
+        })
+    });
 })
